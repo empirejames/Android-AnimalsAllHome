@@ -56,7 +56,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         imgViewCat = (ImageView) findViewById(R.id.imgCat);
         imgViewDog = (ImageView) findViewById(R.id.imgDog);
-        imgOther = (ImageView) findViewById(R.id.imgOther);
         imgViewCat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -71,13 +70,7 @@ public class MainActivity extends AppCompatActivity {
                 //writeNewAnimals("dog");
             }
         });
-        imgOther.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity("other");
-               // writeNewAnimals("other");
-            }
-        });
+
     }
     @Override
     protected void attachBaseContext(Context context) {

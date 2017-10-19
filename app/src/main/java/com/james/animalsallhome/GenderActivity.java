@@ -42,7 +42,6 @@ public class GenderActivity extends AppCompatActivity {
         setContentView(R.layout.activity_gender);
         imgWoman = (ImageView) findViewById(R.id.imgWoman);
         imgMan = (ImageView) findViewById(R.id.imgMan);
-        imgMix = (ImageView) findViewById(R.id.imgMix);
         result = getActivityValue();
         imgMan.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,13 +55,6 @@ public class GenderActivity extends AppCompatActivity {
             public void onClick(View v) {
                 startActivity("woman");
                 //writeNewAnimals(result, "woman");
-            }
-        });
-        imgMix.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity("mix");
-                //writeNewAnimals(result, "mix");
             }
         });
     }

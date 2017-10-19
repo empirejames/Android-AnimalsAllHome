@@ -42,8 +42,6 @@ public class YearsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_year);
         imgBaby = (ImageView) findViewById(R.id.imgBaby);
         imgYoung = (ImageView) findViewById(R.id.imgYoung);
-        imgForman = (ImageView) findViewById(R.id.imgStrong);
-        imgWisdom = (ImageView) findViewById(R.id.imgOld);
         result = getActivityValue();
         imgBaby.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,18 +53,6 @@ public class YearsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity("young");
-            }
-        });
-        imgForman.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity("strong");
-            }
-        });
-        imgWisdom.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity("old");
             }
         });
     }

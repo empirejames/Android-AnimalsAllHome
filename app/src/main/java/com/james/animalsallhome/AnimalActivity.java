@@ -68,8 +68,8 @@ public class AnimalActivity extends AppCompatActivity {
         setContentView(R.layout.activity_animal);
         mProgressBar = (ProgressBar) findViewById(R.id.progressBar);
         result = getActivityValue();
-        Log.e(TAG, ANIMAL_URL +"animal_area_pkid+like+"+ result[0] +"+and+animal_kind+like+"+result[1]+"+and+animal_sex+like+" +result[2] +"+and+animal_age+like+"+ result[3]);
-        apiUrlAll = ANIMAL_URL +"animal_area_pkid+like+"+ result[0] +"+and+animal_kind+like+"+result[1]+"+and+animal_sex+like+" +result[2] +"+and+animal_age+like+"+ result[3];
+        Log.e(TAG, ANIMAL_URL +"animal_place+like+"+ result[0] +"+and+animal_kind+like+"+result[1]+"+and+animal_sex+like+" +result[2] +"+and+animal_age+like+"+ result[3]);
+        apiUrlAll = ANIMAL_URL +"animal_place+like+"+ result[0] +"+and+animal_kind+like+"+result[1]+"+and+animal_sex+like+" +result[2] +"+and+animal_age+like+"+ result[3];
 
         navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
@@ -140,17 +140,17 @@ public class AnimalActivity extends AppCompatActivity {
                 JSONArray array = new JSONArray(json);
                 for (int i = 0; i < array.length(); i++) {
                     JSONObject jsonObject = array.getJSONObject(i);
-                    String name = jsonObject.getString("animal_id");
+                    String place = jsonObject.getString("animal_place");
                     String pic = jsonObject.getString("album_file");
                     String tid = jsonObject.getString("animal_subid");
                     String acceptnum = jsonObject.getString("shelter_name");
                     String webid = jsonObject.getString("animal_update");
-                    Log.e(TAG,name);
+                    Log.e(TAG,place);
                     Log.e(TAG,pic);
                     Log.e(TAG,tid);
                     Log.e(TAG,acceptnum);
                     Log.e(TAG,webid);
-                    mGridData.add(new Animals(name, pic, tid, acceptnum, webid));
+                    mGridData.add(new Animals(place, pic, tid, acceptnum, webid));
                 }
             }else{
                 mGridData.add(new Animals("此頁面沒有搜尋到寵物資訊", "無", "無", "無", "無"));

@@ -6,13 +6,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.james.animalshome.MainActivity">
+    tools:context="com.james.animalsallhome.MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:weightSum="3">
+        android:weightSum="2">
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -75,31 +75,6 @@
             android:layout_height="1dp"
             android:layout_centerInParent="true"
             android:layout_margin="1dp"/>
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/colorMiWhite"
-            android:layout_weight="1"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:id="@+id/imgOther"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:adjustViewBounds="true"
-                android:scaleType="fitXY"
-                android:src="@mipmap/other_dark" />
-
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:textSize="45dp"
-                android:layout_marginLeft="5dp"
-                android:textColor="@color/colorWhite"
-                android:text="找其他" />
-
-        </FrameLayout >
 
     </LinearLayout>
 
