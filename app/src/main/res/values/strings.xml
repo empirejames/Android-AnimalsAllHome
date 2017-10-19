@@ -4,4 +4,112 @@
     <string name="title_dashboard">查看浪浪</string>
     <string name="title_notifications">關於</string>
     <string name="banner_ad_unit_id">ca-app-pub-1659435325076970/5481165583</string>string>
+    <string-array name="city">
+        <item>臺北市</item>
+        <item>新北市</item>
+        <item>基隆市</item>
+        <item>宜蘭縣</item>
+        <item>桃園市</item>
+        <item>新竹縣</item>
+        <item>新竹市</item>
+        <item>苗栗縣</item>
+        <item>臺中市</item>
+        <item>彰化縣</item>
+        <item>南投縣</item>
+        <item>雲林縣</item>
+        <item>嘉義縣</item>
+        <item>嘉義市</item>
+        <item>臺南市</item>
+        <item>高雄市</item>
+        <item>屏東縣</item>
+        <item>花蓮縣</item>
+        <item>臺東縣</item>
+        <item>澎湖縣</item>
+        <item>金門縣</item>
+        <item>連江縣</item>
+    </string-array>
+    <string-array name="NewTaipei">
+        <item>新莊動物之家</item>
+        <item>新店動物之家</item>
+        <item>板橋動物之家</item>
+        <item>中和動物之家</item>
+        <item>三峽動物之家</item>
+        <item>淡水動物之家</item>
+        <item>瑞芳動物之家</item>
+        <item>五股動物之家</item>
+        <item>八里動物之家</item>
+        <item>三芝動物之家</item>
+        <item>政府動物保護防疫處</item>
+        <item>金山動物之家</item>
+    </string-array>
+    <string-array name="Taipei">
+        <item>臺北動物之家</item>
+    </string-array>
+    <string-array name="kiLong">
+        <item>基隆政府動物保護防疫所寵物銀行</item>
+    </string-array>
+    <string-array name="Taouan">
+        <item>桃園動物保護教育園區</item>
+    </string-array>
+    <string-array name="ShinChu">
+        <item>新竹市動物收容所</item>
+    </string-array>
+    <string-array name="ShinChuLine">
+        <item>新竹縣動物收容所</item>
+    </string-array>
+    <string-array name="MauLiCity">
+        <item>北區動物收容中心（竹南鎮公所）</item>
+        <item>中區動物收容中心（苗栗市公所）</item>
+        <item>南區動物收容中心（苑裡鎮公所）</item>
+    </string-array>
+    <string-array name="TaiChung">
+        <item>南屯園區動物之家</item>
+        <item>后里園區動物之家</item>
+        <item>愛心小站</item>
+        <item>中途動物醫院</item>
+    </string-array>
+    <string-array name="ChanHua">
+        <item>彰化流浪狗中途之家</item>
+    </string-array>
+    <string-array name="NaiTao">
+        <item>南投公立動物收容所</item>
+    </string-array>
+    <string-array name="ChaYiCity">
+        <item>嘉義市流浪犬收容中心</item>
+    </string-array>
+    <string-array name="ChaYi">
+        <item>嘉義縣流浪犬中途之家</item>
+    </string-array>
+    <string-array name="TaiNam">
+        <item>灣裡站動物之家</item>
+        <item>善化站動物之家</item>
+    </string-array>
+    <string-array name="KaoShung">
+        <item>壽山站動物保護教育園區</item>
+        <item>燕巢站動物保護教育園區</item>
+    </string-array>
+    <string-array name="PingTung">
+        <item>屏東流浪動物收容所</item>
+    </string-array>
+    <string-array name="YiLamg">
+        <item>宜蘭流浪動物中途之家</item>
+    </string-array>
+    <string-array name="HuaLang">
+        <item>花蓮流浪犬中途之家</item>
+    </string-array>
+    <string-array name="TaiTung">
+        <item>臺東流浪動物收容中心</item>
+    </string-array>
+    <string-array name="LangChung">
+        <item>連江流浪犬收容中心</item>
+    </string-array>
+    <string-array name="KingMan">
+        <item>金門動物收容中心</item>
+    </string-array>
+    <string-array name="PongHu">
+        <item>澎湖流浪動物收容中心</item>
+    </string-array>
+    <string-array name="YunLin">
+        <item>雲林動植物防疫所</item>
+    </string-array>
 </resources>

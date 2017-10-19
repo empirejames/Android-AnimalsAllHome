@@ -27,7 +27,7 @@ import com.google.firebase.database.ValueEventListener;
  */
 
 public class YearsActivity extends AppCompatActivity {
-    private ImageView imgBaby, imgYoung, imgForman, imgWisdom;
+    private ImageView imgBaby, imgYoung, imgForman;
     private String TAG = YearsActivity.class.getSimpleName();
     private String result [] = new String[5];
     private DatabaseReference ref;
@@ -41,32 +41,18 @@ public class YearsActivity extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_year);
         imgBaby = (ImageView) findViewById(R.id.imgBaby);
-        imgYoung = (ImageView) findViewById(R.id.imgYoung);
         imgForman = (ImageView) findViewById(R.id.imgStrong);
-        imgWisdom = (ImageView) findViewById(R.id.imgOld);
         result = getActivityValue();
         imgBaby.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity("baby");
-            }
-        });
-        imgYoung.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity("young");
+                startActivity("child");
             }
         });
         imgForman.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity("strong");
-            }
-        });
-        imgWisdom.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity("old");
+                startActivity("adult");
             }
         });
     }
@@ -77,11 +63,11 @@ public class YearsActivity extends AppCompatActivity {
         i.putExtra("area", result[0]);
         i.putExtra("type", result[1]);
         i.putExtra("sex", result[2]);
-        if (type.equals("baby")) {
+        if (type.equals("child")) {
             i.putExtra("age", "CHILD");
-        } else if (type.equals("young")){
+        } else if (type.equals("adult")){
             i.putExtra("age", "ADULT");
-        }else if (type.equals("strong")){
+        }else if (type.equals("all")){
             i.putExtra("age", "ALL");
         }else if (type.equals("old")){
             i.putExtra("age", "23");

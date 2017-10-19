@@ -140,7 +140,7 @@ public class AnimalActivity extends AppCompatActivity {
                 JSONArray array = new JSONArray(json);
                 for (int i = 0; i < array.length(); i++) {
                     JSONObject jsonObject = array.getJSONObject(i);
-                    String name = jsonObject.getString("animal_id");
+                    String name = jsonObject.getString("animal_place");
                     String pic = jsonObject.getString("album_file");
                     String tid = jsonObject.getString("animal_subid");
                     String acceptnum = jsonObject.getString("shelter_name");
