@@ -13,6 +13,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 import java.io.InputStream;
@@ -60,22 +61,23 @@ public class ImageAdapterGridView extends ArrayAdapter<Animals> {
 
     public View getView(final int position, View convertView, ViewGroup parent) {
         View row = convertView;
-        ViewHolder holder;
+        final ViewHolder holder;
         if (row == null) {
             LayoutInflater inflater = ((Activity) mContext).getLayoutInflater();
             row = inflater.inflate(layoutResourceId, parent, false);
             holder = new ViewHolder();
             holder.textView = (TextView) row.findViewById(R.id.grid_text);
             holder.imageView = (ImageView) row.findViewById(R.id.grid_image);
+            holder.imageViewFail = (ImageView) row.findViewById(R.id.grid_imageFail);
             row.setTag(holder);
         } else {
             holder = (ViewHolder) row.getTag();
         }
         Animals animals = mGridData.get(position);
-        if(animals.getName().equals("")){
+        if(animals.getPlace().equals("")){
             holder.textView.setText("無");
         }else{
-            holder.textView.setText(animals.getName());
+            holder.textView.setText(animals.getPlace());
         }
         if(animals.getPic().toString().equals("無") ||animals.getPic().toString().equals("") ){
             Picasso.with(mContext)
@@ -85,14 +87,27 @@ public class ImageAdapterGridView extends ArrayAdapter<Animals> {
             Log.e(TAG,"animals.getPic() " + animals.getPic());
             Picasso.with(mContext)
                     .load(animals.getPic())
-                    .into(holder.imageView);
+                    .into(holder.imageView, new Callback() {
+                        @Override
+                        public void onSuccess() {
+                            Log.e(TAG,"onSuccess");
+                            holder.imageView.setVisibility(View.VISIBLE);
+                            holder.imageViewFail.setVisibility(View.GONE);
+                        }
+                        @Override
+                        public void onError() {
+                            Log.e(TAG,"onError");
+                            holder.imageView.setVisibility(View.GONE);
+                            holder.imageViewFail.setVisibility(View.VISIBLE);
+                        }
+                    });
         }
         return row;
     }
 
 
     static class ViewHolder {
-        ImageView imageView;
+        ImageView imageView, imageViewFail;
         TextView textView;
     }
 

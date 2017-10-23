@@ -74,9 +74,9 @@ public class AnimalActivity extends AppCompatActivity {
         navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         navigation.setVisibility(View.GONE);
-        AdView mAdView = (AdView) findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().addTestDevice("F618803C89E1614E3394A55D5E7A756B").build(); //Nexus 5
-        mAdView.loadAd(adRequest);
+//        AdView mAdView = (AdView) findViewById(R.id.adView);
+//        AdRequest adRequest = new AdRequest.Builder().addTestDevice("F618803C89E1614E3394A55D5E7A756B").build(); //Nexus 5
+//        mAdView.loadAd(adRequest);
         mGridView = (GridView) findViewById(R.id.gridview);
         mGridData = new ArrayList<>();
         mGridAdapter = new ImageAdapterGridView(this, R.layout.grid_item, mGridData);
@@ -85,7 +85,7 @@ public class AnimalActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 animals = mGridData.get(position);
-                openWebView(WEB_URL + animals.getWebId() + "&Tid=" + animals.getTid(), animals.getName());
+                openAnimalsDetail();
                 overridePendingTransition(R.anim.slide_in_left_1, R.anim.slide_in_left_2);
                 //Toast.makeText(AnimalActivity.this, animals.getTid()+" . " + animals.getWebId(), Toast.LENGTH_SHORT).show();
             }
@@ -95,13 +95,18 @@ public class AnimalActivity extends AppCompatActivity {
         mProgressBar.setVisibility(View.VISIBLE);
     }
 
-    private void openWebView(String url, String name) {
-        Intent intentWV = new Intent(AnimalActivity.this, WebViewActivity.class);
-        intentWV.putExtra("URL", url);
-        intentWV.putExtra("name", animals.getName());
-        intentWV.putExtra("acceptnum", animals.getAcceptnum());
-        intentWV.putExtra("type", result[0]);
-        startActivity(intentWV);
+    private void openAnimalsDetail() {
+        Intent i = new Intent(AnimalActivity.this, AnimalsDetail.class);
+        i.putExtra("animal_id", animals.getId());
+        i.putExtra("animal_subid", animals.getSubid());
+        i.putExtra("animal_place", animals.getPlace());
+        i.putExtra("animal_status", animals.getStatus());
+        i.putExtra("animal_foundplace", animals.getFoundplace());
+        i.putExtra("animal_update", animals.getUpdate());
+        i.putExtra("shelter_address", animals.getAddress());
+        i.putExtra("shelter_tel", animals.getTel());
+        i.putExtra("album_file", animals.getPic());
+        startActivity(i);
         overridePendingTransition(R.anim.slide_in_left_1, R.anim.slide_in_left_2);
     }
 
@@ -136,24 +141,23 @@ public class AnimalActivity extends AppCompatActivity {
             String json = Jsoup.connect(url).ignoreContentType(true).execute().body();
             if (json.indexOf("{")!=-1) {
                 String output = json.substring(json.indexOf("{"), json.lastIndexOf("}") + 1);
-                Log.e(TAG, " json output : " + output);
                 JSONArray array = new JSONArray(json);
                 for (int i = 0; i < array.length(); i++) {
                     JSONObject jsonObject = array.getJSONObject(i);
                     String place = jsonObject.getString("animal_place");
                     String pic = jsonObject.getString("album_file");
-                    String tid = jsonObject.getString("animal_subid");
-                    String acceptnum = jsonObject.getString("shelter_name");
-                    String webid = jsonObject.getString("animal_update");
-                    Log.e(TAG,place);
-                    Log.e(TAG,pic);
-                    Log.e(TAG,tid);
-                    Log.e(TAG,acceptnum);
-                    Log.e(TAG,webid);
-                    mGridData.add(new Animals(place, pic, tid, acceptnum, webid));
+                    String status = jsonObject.getString("animal_status");
+                    String subid = jsonObject.getString("animal_subid");
+                    String id = jsonObject.getString("animal_id");
+                    String foundplace = jsonObject.getString("animal_foundplace");
+                    String update = jsonObject.getString("animal_update");
+                    String address = jsonObject.getString("shelter_address");
+                    String tel = jsonObject.getString("shelter_tel");
+                    mGridData.add(new Animals(place, pic, status, subid, id,foundplace,update,address,tel));
+
                 }
             }else{
-                mGridData.add(new Animals("此頁面沒有搜尋到寵物資訊", "無", "無", "無", "無"));
+                mGridData.add(new Animals("此頁面沒有搜尋到寵物資訊", "無", "無", "無", "無", "無", "無", "無", "無"));
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -176,4 +180,5 @@ public class AnimalActivity extends AppCompatActivity {
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(i);
     }
+
 }

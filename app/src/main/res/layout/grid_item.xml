@@ -9,7 +9,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"/>
-
+    <com.james.animalsallhome.SquareImageView
+        android:id="@+id/grid_imageFail"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@mipmap/no_image_text"
+        android:scaleType="centerCrop"/>
     <TextView
         android:id="@+id/grid_text"
         android:layout_width="match_parent"

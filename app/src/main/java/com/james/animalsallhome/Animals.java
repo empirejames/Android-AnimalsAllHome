@@ -6,38 +6,57 @@ package com.james.animalsallhome;
 
 public class Animals {
     String TAG = Animals.class.getSimpleName();
-    String name;
+    String place;
     String pic;
-    String tid;
-    String acceptnum;
-    String webId;
+    String status;
+    String subid;
+    String id;
+    String foundplace;
+    String update;
+    String address;
+    String tel;
 
-    public Animals(String name, String pic, String tid, String acceptnum, String id) {
-        this.name = name;
+    public Animals(String place, String pic, String status, String subid, String id, String foundplace, String update, String address, String tel) {
+        this.place = place;
         this.pic = pic;
-        this.tid = tid;
-        this.acceptnum = acceptnum;
-        this.webId = id;
+        this.status = status;
+        this.subid = subid;
+        this.id = id;
+        this.foundplace = foundplace;
+        this.update = update;
+        this.address = address;
+        this.tel = tel;
     }
 
-    public String getName() {
-        return name;
+    public String getPlace() {
+        return place;
     }
 
     public String getPic() {
         return pic;
     }
 
-    public String getTid() {
-        return tid;
+    public String getStatus() {
+        return status;
     }
 
-    public String getAcceptnum() {
-        return acceptnum;
+    public String getSubid() {
+        return subid;
     }
 
-    public String getWebId() {
-        return webId;
+    public String getId() {
+        return id;
     }
-
+    public String getFoundplace() {
+        return foundplace;
+    }
+    public String getUpdate() {
+        return update;
+    }
+    public String getAddress() {
+        return address;
+    }
+    public String getTel() {
+        return tel;
+    }
 }

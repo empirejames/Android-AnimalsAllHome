@@ -45,8 +45,8 @@ public class MainActivity extends AppCompatActivity {
         tinydb = new TinyDB(MainActivity.this);
         alreadyGj = tinydb.getString("GJ");
         result = getActivityValue();
-        if(alreadyGj.equals("")){
-            alreadyGj="true";
+        if (alreadyGj.equals("")) {
+            alreadyGj = "true";
         }
         new AppUpdater(this)
                 .setUpdateFrom(UpdateFrom.GOOGLE_PLAY)
@@ -72,14 +72,16 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+
     @Override
     protected void attachBaseContext(Context context) {
         super.attachBaseContext(context);
         MultiDex.install(this);
     }
+
     @Override
     public void onBackPressed() {
-        if(alreadyGj.toString().equals("true")){
+        if (alreadyGj.toString().equals("true")) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setMessage("◎ 給個 5 星好評\n◎ 一同支持領養代替購買\n◎ 可回饋問題讓我們知道")
                     .setTitle("感恩您的使用")
@@ -103,10 +105,11 @@ public class MainActivity extends AppCompatActivity {
                     });
             AlertDialog alert = builder.create();
             alert.show();
-        }else{
+        } else {
             MainActivity.this.finish();
         }
     }
+
     @Override
     protected void onStart() {
         super.onStart();
@@ -154,6 +157,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(i);
         overridePendingTransition(R.anim.slide_in_left_1, R.anim.slide_in_left_2);
     }
+
     public String getActivityValue() {
         Intent i = getIntent();
         String result = i.getStringExtra("area");

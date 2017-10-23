@@ -84,7 +84,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="55dp"
-                android:text="年齡1年以下"
+                android:text="年齡1年以上"
                 android:textColor="@color/colorWhite"
                 android:textSize="15dp" />
         </FrameLayout >
