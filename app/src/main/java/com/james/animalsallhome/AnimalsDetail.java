@@ -12,11 +12,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import java.io.IOException;
+
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.net.URLConnection;
 import java.util.ArrayList;
 
 /**
@@ -52,6 +52,7 @@ public class AnimalsDetail extends AppCompatActivity {
         album_file = buldle.getString("album_file");
         animal_status = buldle.getString("animal_status");
         setTvValue();
+        startAd();
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -108,6 +109,12 @@ public class AnimalsDetail extends AppCompatActivity {
         tv_ZooMap.getBackground().setAlpha(0);
         tv_voiceZoo = (Button) findViewById(R.id.voiceZoo);
         tv_voiceZoo.getBackground().setAlpha(0);
+    }
+
+    public void startAd(){
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().addTestDevice("7EC78E2E44AAFFCB85B0B0A916A71418").build(); //Nexus 5
+        mAdView.loadAd(adRequest);
     }
 
     public void setTvValue() {

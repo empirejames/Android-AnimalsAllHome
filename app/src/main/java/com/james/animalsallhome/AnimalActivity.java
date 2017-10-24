@@ -74,9 +74,9 @@ public class AnimalActivity extends AppCompatActivity {
         navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         navigation.setVisibility(View.GONE);
-//        AdView mAdView = (AdView) findViewById(R.id.adView);
-//        AdRequest adRequest = new AdRequest.Builder().addTestDevice("F618803C89E1614E3394A55D5E7A756B").build(); //Nexus 5
-//        mAdView.loadAd(adRequest);
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().addTestDevice("7EC78E2E44AAFFCB85B0B0A916A71418").build(); //Nexus 5
+        mAdView.loadAd(adRequest);
         mGridView = (GridView) findViewById(R.id.gridview);
         mGridData = new ArrayList<>();
         mGridAdapter = new ImageAdapterGridView(this, R.layout.grid_item, mGridData);
